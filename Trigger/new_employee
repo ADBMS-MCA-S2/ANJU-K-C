@@ -1,0 +1,11 @@
+CREATE DEFINER=`root`@`localhost` TRIGGER `college_employee`.`new_employee_AFTER_INSERT` AFTER INSERT ON `new_employee` FOR EACH ROW
+BEGIN
+if(new.emp_department='mca')then
+insert into department_mca set
+dept_id=new.emp_id,dept_name=new.emp_name,dept_emp="Asst.prof filled";
+end if;
+if(new.emp_department='cs')then
+insert into department_cs set
+dept_id=new.emp_id,dept_name=new.emp_name,dept_emp="Asst.prof filled";
+end if;
+END
