@@ -1,0 +1,150 @@
+db.college.find()
+> use student
+switched to db student
+> student.create collection
+uncaught exception: SyntaxError: unexpected token: identifier :
+@(shell):1:15
+> show dbs
+admin    0.000GB
+college  0.000GB
+config   0.000GB
+local    0.000GB
+> db
+student
+> db
+student
+> db.createCollection("student_details")
+{ "ok" : 1 }
+> db
+student
+> db.student.insert({srn:101,sname:"Abina",degree:"MCA",sem:"1",CGPA:8})
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({srn:102,sname:"Arya",degree:"BCA",sem:"1",CGPA:8})
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({srn:101,sname:"rahul",degree:"BCA",sem:"1",CGPA:8.2})
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({srn:101,sname:"Aravindh",degree:"BSC",sem:"3",CGPA:7.2})
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({srn:101,sname:"Arun",degree:"BCA",sem:"6",CGPA:9.2})
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({srn:101,sname:"Raji",degree:"BSC",sem:"3",CGPA:9})
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({srn:101,sname:"Sreejith",degree:"BCA",sem:"6",CGPA:9.8})
+WriteResult({ "nInserted" : 1 })
+> db.createCollection("student_details")
+{ "ok" : 1 }
+> db.student.insert({srn:101,sname:"Abina",degree:"BCA",sem:"1",CGPA:8})
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({srn:102,sname:"Arya",degree:"BCA",sem:"1",CGPA:8})
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({srn:101,sname:"rahul",degree:"BCA",sem:"1",CGPA:8.2})
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({srn:101,sname:"Aravindh",degree:"BSC",sem:"3",CGPA:7.2})
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({srn:101,sname:"Arun",degree:"BCA",sem:"6",CGPA:9.2})
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({srn:101,sname:"Raji",degree:"BSC",sem:"3",CGPA:9})
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({srn:101,sname:"Sreejith",degree:"BCA",sem:"6",CGPA:9.8})
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({srn:101,sname:"Avani",degree:"BCA",sem:"4",CGPA:8.5})
+WriteResult({ "nInserted" : 1 })
+> db.student.find()
+{ "_id" : ObjectId("6278a4dc01c695b8dbbcdd97"), "srn" : 101, "sname" : "Abina", "degree" : "MCA", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a58a01c695b8dbbcdd98"), "srn" : 102, "sname" : "Arya", "degree" : "BC9", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a5d801c695b8dbbcdd99"), "srn" : 103, "sname" : "Arun", "degree" : "BCA", "CGPA" : 7 }
+{ "_id" : ObjectId("6278a60801c695b8dbbcdd9a"), "srn" : 104, "sname" : "Arvindh", "degree" : "BCA", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a62d01c695b8dbbcdd9b"), "srn" : 101, "sname" : "Avani", "degree" : "BCA", "CGPA" : 8.5 }
+{ "_id" : ObjectId("6278a68501c695b8dbbcdd9c"), "srn" : 101, "sname" : "Avani", "degree" : "BCA", "CGPA" : 8.5 }
+{ "_id" : ObjectId("6278a71501c695b8dbbcdd9d"), "srn" : 101, "sname" : "Abina", "degree" : "MCA", "sem" : "1", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a74201c695b8dbbcdd9e"), "srn" : 102, "sname" : "Arya", "degree" : "BCA", "sem" : "1", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a76901c695b8dbbcdd9f"), "srn" : 101, "sname" : "rahul", "degree" : "BCA", "sem" : "1", "CGPA" : 8.2 }
+{ "_id" : ObjectId("6278a82101c695b8dbbcdda0"), "srn" : 101, "sname" : "Aravindh", "degree" : "BSC", "sem" : "3", "CGPA" : 7.2 }
+{ "_id" : ObjectId("6278a85f01c695b8dbbcdda1"), "srn" : 101, "sname" : "Arun", "degree" : "BCA", "sem" : "6", "CGPA" : 9.2 }
+{ "_id" : ObjectId("6278a8e701c695b8dbbcdda2"), "srn" : 101, "sname" : "Raji", "degree" : "BSC", "sem" : "3", "CGPA" : 9 }
+{ "_id" : ObjectId("6278a90a01c695b8dbbcdda3"), "srn" : 101, "sname" : "Sreejith", "degree" : "BCA", "sem" : "6", "CGPA" : 9.8 }
+{ "_id" : ObjectId("6278a97b01c695b8dbbcdda4"), "srn" : 101, "sname" : "Abina", "degree" : "BCA", "sem" : "1", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a98401c695b8dbbcdda5"), "srn" : 102, "sname" : "Arya", "degree" : "BCA", "sem" : "1", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a98c01c695b8dbbcdda6"), "srn" : 101, "sname" : "rahul", "degree" : "BCA", "sem" : "1", "CGPA" : 8.2 }
+{ "_id" : ObjectId("6278a99401c695b8dbbcdda7"), "srn" : 101, "sname" : "Aravindh", "degree" : "BSC", "sem" : "3", "CGPA" : 7.2 }
+{ "_id" : ObjectId("6278a99b01c695b8dbbcdda8"), "srn" : 101, "sname" : "Arun", "degree" : "BCA", "sem" : "6", "CGPA" : 9.2 }
+{ "_id" : ObjectId("6278a9a901c695b8dbbcdda9"), "srn" : 101, "sname" : "Raji", "degree" : "BSC", "sem" : "3", "CGPA" : 9 }
+{ "_id" : ObjectId("6278a9b101c695b8dbbcddaa"), "srn" : 101, "sname" : "Sreejith", "degree" : "BCA", "sem" : "6", "CGPA" : 9.8 }
+Type "it" for more
+> db.student.find({"degree":"BCA"})
+{ "_id" : ObjectId("6278a5d801c695b8dbbcdd99"), "srn" : 103, "sname" : "Arun", "degree" : "BCA", "CGPA" : 7 }
+{ "_id" : ObjectId("6278a60801c695b8dbbcdd9a"), "srn" : 104, "sname" : "Arvindh", "degree" : "BCA", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a62d01c695b8dbbcdd9b"), "srn" : 101, "sname" : "Avani", "degree" : "BCA", "CGPA" : 8.5 }
+{ "_id" : ObjectId("6278a68501c695b8dbbcdd9c"), "srn" : 101, "sname" : "Avani", "degree" : "BCA", "CGPA" : 8.5 }
+{ "_id" : ObjectId("6278a74201c695b8dbbcdd9e"), "srn" : 102, "sname" : "Arya", "degree" : "BCA", "sem" : "1", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a76901c695b8dbbcdd9f"), "srn" : 101, "sname" : "rahul", "degree" : "BCA", "sem" : "1", "CGPA" : 8.2 }
+{ "_id" : ObjectId("6278a85f01c695b8dbbcdda1"), "srn" : 101, "sname" : "Arun", "degree" : "BCA", "sem" : "6", "CGPA" : 9.2 }
+{ "_id" : ObjectId("6278a90a01c695b8dbbcdda3"), "srn" : 101, "sname" : "Sreejith", "degree" : "BCA", "sem" : "6", "CGPA" : 9.8 }
+{ "_id" : ObjectId("6278a97b01c695b8dbbcdda4"), "srn" : 101, "sname" : "Abina", "degree" : "BCA", "sem" : "1", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a98401c695b8dbbcdda5"), "srn" : 102, "sname" : "Arya", "degree" : "BCA", "sem" : "1", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a98c01c695b8dbbcdda6"), "srn" : 101, "sname" : "rahul", "degree" : "BCA", "sem" : "1", "CGPA" : 8.2 }
+{ "_id" : ObjectId("6278a99b01c695b8dbbcdda8"), "srn" : 101, "sname" : "Arun", "degree" : "BCA", "sem" : "6", "CGPA" : 9.2 }
+{ "_id" : ObjectId("6278a9b101c695b8dbbcddaa"), "srn" : 101, "sname" : "Sreejith", "degree" : "BCA", "sem" : "6", "CGPA" : 9.8 }
+{ "_id" : ObjectId("6278a9de01c695b8dbbcddab"), "srn" : 101, "sname" : "Avani", "degree" : "BCA", "sem" : "4", "CGPA" : 8.5 }
+> db.student.find().sort({sname:1})
+{ "_id" : ObjectId("6278a4dc01c695b8dbbcdd97"), "srn" : 101, "sname" : "Abina", "degree" : "MCA", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a71501c695b8dbbcdd9d"), "srn" : 101, "sname" : "Abina", "degree" : "MCA", "sem" : "1", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a97b01c695b8dbbcdda4"), "srn" : 101, "sname" : "Abina", "degree" : "BCA", "sem" : "1", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a82101c695b8dbbcdda0"), "srn" : 101, "sname" : "Aravindh", "degree" : "BSC", "sem" : "3", "CGPA" : 7.2 }
+{ "_id" : ObjectId("6278a99401c695b8dbbcdda7"), "srn" : 101, "sname" : "Aravindh", "degree" : "BSC", "sem" : "3", "CGPA" : 7.2 }
+{ "_id" : ObjectId("6278a5d801c695b8dbbcdd99"), "srn" : 103, "sname" : "Arun", "degree" : "BCA", "CGPA" : 7 }
+{ "_id" : ObjectId("6278a85f01c695b8dbbcdda1"), "srn" : 101, "sname" : "Arun", "degree" : "BCA", "sem" : "6", "CGPA" : 9.2 }
+{ "_id" : ObjectId("6278a99b01c695b8dbbcdda8"), "srn" : 101, "sname" : "Arun", "degree" : "BCA", "sem" : "6", "CGPA" : 9.2 }
+{ "_id" : ObjectId("6278a60801c695b8dbbcdd9a"), "srn" : 104, "sname" : "Arvindh", "degree" : "BCA", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a58a01c695b8dbbcdd98"), "srn" : 102, "sname" : "Arya", "degree" : "BC9", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a74201c695b8dbbcdd9e"), "srn" : 102, "sname" : "Arya", "degree" : "BCA", "sem" : "1", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a98401c695b8dbbcdda5"), "srn" : 102, "sname" : "Arya", "degree" : "BCA", "sem" : "1", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a62d01c695b8dbbcdd9b"), "srn" : 101, "sname" : "Avani", "degree" : "BCA", "CGPA" : 8.5 }
+{ "_id" : ObjectId("6278a68501c695b8dbbcdd9c"), "srn" : 101, "sname" : "Avani", "degree" : "BCA", "CGPA" : 8.5 }
+{ "_id" : ObjectId("6278a9de01c695b8dbbcddab"), "srn" : 101, "sname" : "Avani", "degree" : "BCA", "sem" : "4", "CGPA" : 8.5 }
+{ "_id" : ObjectId("6278a8e701c695b8dbbcdda2"), "srn" : 101, "sname" : "Raji", "degree" : "BSC", "sem" : "3", "CGPA" : 9 }
+{ "_id" : ObjectId("6278a9a901c695b8dbbcdda9"), "srn" : 101, "sname" : "Raji", "degree" : "BSC", "sem" : "3", "CGPA" : 9 }
+{ "_id" : ObjectId("6278a90a01c695b8dbbcdda3"), "srn" : 101, "sname" : "Sreejith", "degree" : "BCA", "sem" : "6", "CGPA" : 9.8 }
+{ "_id" : ObjectId("6278a9b101c695b8dbbcddaa"), "srn" : 101, "sname" : "Sreejith", "degree" : "BCA", "sem" : "6", "CGPA" : 9.8 }
+{ "_id" : ObjectId("6278a76901c695b8dbbcdd9f"), "srn" : 101, "sname" : "rahul", "degree" : "BCA", "sem" : "1", "CGPA" : 8.2 }
+> db.student.find()
+{ "_id" : ObjectId("6278a4dc01c695b8dbbcdd97"), "srn" : 101, "sname" : "Abina", "degree" : "MCA", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a58a01c695b8dbbcdd98"), "srn" : 102, "sname" : "Arya", "degree" : "BC9", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a5d801c695b8dbbcdd99"), "srn" : 103, "sname" : "Arun", "degree" : "BCA", "CGPA" : 7 }
+{ "_id" : ObjectId("6278a60801c695b8dbbcdd9a"), "srn" : 104, "sname" : "Arvindh", "degree" : "BCA", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a62d01c695b8dbbcdd9b"), "srn" : 101, "sname" : "Avani", "degree" : "BCA", "CGPA" : 8.5 }
+{ "_id" : ObjectId("6278a68501c695b8dbbcdd9c"), "srn" : 101, "sname" : "Avani", "degree" : "BCA", "CGPA" : 8.5 }
+{ "_id" : ObjectId("6278a71501c695b8dbbcdd9d"), "srn" : 101, "sname" : "Abina", "degree" : "MCA", "sem" : "1", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a74201c695b8dbbcdd9e"), "srn" : 102, "sname" : "Arya", "degree" : "BCA", "sem" : "1", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a76901c695b8dbbcdd9f"), "srn" : 101, "sname" : "rahul", "degree" : "BCA", "sem" : "1", "CGPA" : 8.2 }
+{ "_id" : ObjectId("6278a82101c695b8dbbcdda0"), "srn" : 101, "sname" : "Aravindh", "degree" : "BSC", "sem" : "3", "CGPA" : 7.2 }
+{ "_id" : ObjectId("6278a85f01c695b8dbbcdda1"), "srn" : 101, "sname" : "Arun", "degree" : "BCA", "sem" : "6", "CGPA" : 9.2 }
+{ "_id" : ObjectId("6278a8e701c695b8dbbcdda2"), "srn" : 101, "sname" : "Raji", "degree" : "BSC", "sem" : "3", "CGPA" : 9 }
+{ "_id" : ObjectId("6278a90a01c695b8dbbcdda3"), "srn" : 101, "sname" : "Sreejith", "degree" : "BCA", "sem" : "6", "CGPA" : 9.8 }
+{ "_id" : ObjectId("6278a97b01c695b8dbbcdda4"), "srn" : 101, "sname" : "Abina", "degree" : "BCA", "sem" : "1", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a98401c695b8dbbcdda5"), "srn" : 102, "sname" : "Arya", "degree" : "BCA", "sem" : "1", "CGPA" : 8 }
+{ "_id" : ObjectId("6278a98c01c695b8dbbcdda6"), "srn" : 101, "sname" : "rahul", "degree" : "BCA", "sem" : "1", "CGPA" : 8.2 }
+{ "_id" : ObjectId("6278a99401c695b8dbbcdda7"), "srn" : 101, "sname" : "Aravindh", "degree" : "BSC", "sem" : "3", "CGPA" : 7.2 }
+{ "_id" : ObjectId("6278a99b01c695b8dbbcdda8"), "srn" : 101, "sname" : "Arun", "degree" : "BCA", "sem" : "6", "CGPA" : 9.2 }
+{ "_id" : ObjectId("6278a9a901c695b8dbbcdda9"), "srn" : 101, "sname" : "Raji", "degree" : "BSC", "sem" : "3", "CGPA" : 9 }
+{ "_id" : ObjectId("6278a9b101c695b8dbbcddaa"), "srn" : 101, "sname" : "Sreejith", "degree" : "BCA", "sem" : "6", "CGPA" : 9.8 }
+db.student.find({$and:[{"degree":"BCA"},{"sem":"6"}]})
+{ "_id" : ObjectId("6278a85f01c695b8dbbcdda1"), "srn" : 101, "sname" : "Arun", "degree" : "BCA", "sem" : "6", "CGPA" : 9.2 }
+{ "_id" : ObjectId("6278a90a01c695b8dbbcdda3"), "srn" : 101, "sname" : "Sreejith", "degree" : "BCA", "sem" : "6", "CGPA" : 9.8 }
+{ "_id" : ObjectId("6278a99b01c695b8dbbcdda8"), "srn" : 101, "sname" : "Arun", "degree" : "BCA", "sem" : "6", "CGPA" : 9.2 }
+{ "_id" : ObjectId("6278a9b101c695b8dbbcddaa"), "srn" : 101, "sname" : "Sreejith", "degree" : "BCA", "sem" : "6", "CGPA" : 9.8 }
+> db.student.count({"degree":"BCA"})
+14
+> db.student.distinct("degree")
+[ "BC9", "BCA", "BSC", "MCA" ]
+> db.student.find({"sname":"Rahul"},{"sname":1,"degree":1})
+> db.student.find({"sname":"rahul"},{"sname":1,"degree":1})
+{ "_id" : ObjectId("6278a76901c695b8dbbcdd9f"), "sname" : "rahul", "degree" : "BCA" }
+{ "_id" : ObjectId("6278a98c01c695b8dbbcdda6"), "sname" : "rahul", "degree" : "BCA" }
+> db.student.find({"CGPA":{$gt:6,$lt:7.5}})
+{ "_id" : ObjectId("6278a5d801c695b8dbbcdd99"), "srn" : 103, "sname" : "Arun", "degree" : "BCA", "CGPA" : 7 }
+{ "_id" : ObjectId("6278a82101c695b8dbbcdda0"), "srn" : 101, "sname" : "Aravindh", "degree" : "BSC", "sem" : "3", "CGPA" : 7.2 }
+{ "_id" : ObjectId("6278a99401c695b8dbbcdda7"), "srn" : 101, "sname" : "Aravindh", "degree" : "BSC", "sem" : "3", "CGPA" : 7.2 }
+>db.student.find({"degree":"BCA","CGPA":{$gt:6,$lt:7.5}})
+{ "_id" : ObjectId("6278a5d801c695b8dbbcdd99"), "srn" : 103, "sname" : "Arun", "degree" : "BCA", "CGPA" : 7 }
+>
