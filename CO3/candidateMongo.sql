@@ -37,10 +37,16 @@ uncaught exception: SyntaxError: missing : after property id :
 > db.details.aggregate([{$group:{_id:"$gender","total amount":{$sum:'$amount'}}}])
 { "_id" : "male", "total amount" : 270000 }
 { "_id" : "female", "total amount" : 270000 }
+
 >> db.details.aggregate([{$match:{"age":{$lt:25}}},{$group:{_id:"$gender","total amount":{$avg:'$amount'}}}])
 { "_id" : "male", "total amount" : 70000 }
 { "_id" : "female", "total amount" : 66666.66666666667 }
->
+//sort data
+> db.details.aggregate([{$match:{"age":{$lt:25}}},{$group:{_id:"$gender","total amount":{$avg:'$amount'}}},{$sort:{avg:1}}])
+{ "_id" : "female", "total amount" : 66666.66666666667 }
+{ "_id" : "male", "total amount" : 70000 }
+
+
 
 
 
