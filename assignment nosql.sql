@@ -353,11 +353,157 @@ Q6). Display the details of students who secured mark, more than 80 but less tha
         "grade" : "A"
 }
 Q7)7. Display the details of students whose name starts with ‘V’
+
  db.studlist.find({"name.fname":{$regex:"^V"}},{})
 { "_id" : ObjectId("628debc4ad4155a2fa309ddf"), "name" : { "fname" : "Varun", "lname" : "Dani" }, "gender" : "male", "contact" : { "House name" : "dan villa", "street" : "nandhancode", "district" : "trivandrum", "mob" : 8614763765 }, "department" : "Mech", "mark" : 92, "grade" : "A+" }
 { "_id" : ObjectId("628ded74ad4155a2fa309de2"), "name" : { "fname" : "Vishnu", "lname" : "Lal" }, "gender" : "male", "contact" : { "House name" : "vishnu bhavan", "street" : "kulathoor", "district" : "trivandrum", "mob" : 9605563765 }, "department" : "mech", "mark" : 89, "grade" : "A" }
 >
 
+8. Display all students from Kollam
+
+ db.studlist.find({"contact.district":"kollam"}).pretty()
+{
+        "_id" : ObjectId("628deb01ad4155a2fa309dde"),
+        "name" : {
+                "fname" : "Raji",
+                "lname" : "SR"
+        },
+        "gender" : "female",
+        "contact" : {
+                "House name" : "pattaseril",
+                "street" : "eastkallada",
+                "district" : "kollam",
+                "mob" : 8680763765
+        },
+        "department" : "MCA",
+        "mark" : 90,
+        "grade" : "A+"
+}
+{
+        "_id" : ObjectId("628dec77ad4155a2fa309de0"),
+        "name" : {
+                "fname" : "Leni",
+                "lname" : "kunjumon"
+        },
+        "gender" : "female",
+        "contact" : {
+                "House name" : "kunjumon",
+                "street" : "kallada",
+                "district" : "kollam",
+                "mob" : 9614763765
+        },
+        "department" : "Mech",
+        "mark" : 98,
+        "grade" : "A+"
+}
+{
+        "_id" : ObjectId("628dee3bad4155a2fa309de3"),
+        "name" : {
+                "fname" : "Feba",
+                "lname" : "george"
+        },
+        "gender" : "female",
+        "contact" : {
+                "House name" : "feby villa",
+                "street" : "kadambanad",
+                "district" : "kollam",
+                "mob" : 9605893765
+        },
+        "department" : "MCA",
+        "mark" : 98,
+        "grade" : "A"
+}
+>
+
+9. Display all students who does not belong to neither Kollam nor Thiruvananthapuram
+db.studlist.find({$nor:[{"contact.district":"kollam"},{"contact.district":"trivandrum"}]}).pretty()
+{
+        "_id" : ObjectId("628deec0ad4155a2fa309de4"),
+        "name" : {
+                "fname" : "Rino",
+                "lname" : "sunny"
+        },
+        "gender" : "male",
+        "contact" : {
+                "House name" : "Rino bhavan",
+                "street" : "cherai",
+                "district" : "eranakulam",
+                "mob" : 9605893768
+        },
+        "department" : "mech",
+        "mark" : 82,
+        "grade" : "A"
+}
+{
+        "_id" : ObjectId("628def50ad4155a2fa309de5"),
+        "name" : {
+                "fname" : "Arun",
+                "lname" : "thomas"
+        },
+        "gender" : "male",
+        "contact" : {
+                "House name" : "Arun bhavan",
+                "street" : "thiruvalla",
+                "district" : "kottayam",
+                "mob" : 9603393768
+        },
+        "department" : "MCA",
+        "mark" : 95,
+        "grade" : "A+"
+}
+10. Display all female students who belong to either Kollam or Thiruvananthapuram
+ db.studlist.find({$or:[{"contact.district":"kollam"},{"contact.district":"trivandrum"}],"gender":"female"}).pretty()
+{
+        "_id" : ObjectId("628deb01ad4155a2fa309dde"),
+        "name" : {
+                "fname" : "Raji",
+                "lname" : "SR"
+        },
+        "gender" : "female",
+        "contact" : {
+                "House name" : "pattaseril",
+                "street" : "eastkallada",
+                "district" : "kollam",
+                "mob" : 8680763765
+        },
+        "department" : "MCA",
+        "mark" : 90,
+        "grade" : "A+"
+}
+{
+        "_id" : ObjectId("628dec77ad4155a2fa309de0"),
+        "name" : {
+                "fname" : "Leni",
+                "lname" : "kunjumon"
+        },
+        "gender" : "female",
+        "contact" : {
+                "House name" : "kunjumon",
+                "street" : "kallada",
+                "district" : "kollam",
+                "mob" : 9614763765
+        },
+        "department" : "Mech",
+        "mark" : 98,
+        "grade" : "A+"
+}
+{
+        "_id" : ObjectId("628dee3bad4155a2fa309de3"),
+        "name" : {
+                "fname" : "Feba",
+                "lname" : "george"
+        },
+        "gender" : "female",
+        "contact" : {
+                "House name" : "feby villa",
+                "street" : "kadambanad",
+                "district" : "kollam",
+                "mob" : 9605893765
+        },
+        "department" : "MCA",
+        "mark" : 98,
+        "grade" : "A"
+}
 
 
 
