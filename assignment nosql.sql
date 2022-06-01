@@ -353,6 +353,11 @@ Q6). Display the details of students who secured mark, more than 80 but less tha
         "grade" : "A"
 }
 Q7)7. Display the details of students whose name starts with ‘V’
+ db.studlist.find({"name.fname":{$regex:"^V"}},{})
+{ "_id" : ObjectId("628debc4ad4155a2fa309ddf"), "name" : { "fname" : "Varun", "lname" : "Dani" }, "gender" : "male", "contact" : { "House name" : "dan villa", "street" : "nandhancode", "district" : "trivandrum", "mob" : 8614763765 }, "department" : "Mech", "mark" : 92, "grade" : "A+" }
+{ "_id" : ObjectId("628ded74ad4155a2fa309de2"), "name" : { "fname" : "Vishnu", "lname" : "Lal" }, "gender" : "male", "contact" : { "House name" : "vishnu bhavan", "street" : "kulathoor", "district" : "trivandrum", "mob" : 9605563765 }, "department" : "mech", "mark" : 89, "grade" : "A" }
+>
+
 
 
 
