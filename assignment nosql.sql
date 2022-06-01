@@ -297,6 +297,8 @@ i", "district" : "eranakulam", "mob" : 9605893768 }, "department" : "mech", "mar
         "mark" : 82,
         "grade" : "A"
 }
+5. Display the details of female students [fname,lname,grade,mark,contact] who achieved a
+mark more than 90.
 
 Q6). Display the details of students who secured mark, more than 80 but less than 90.
 
