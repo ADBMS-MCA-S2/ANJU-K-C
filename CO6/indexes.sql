@@ -39,6 +39,7 @@ WriteResult({ "nInserted" : 1 })
 ]
 >
 //compound indexes
+
 > db.college.createIndex({"regno":1},{"name":"anju"})
 {
         "numIndexesBefore" : 1,
@@ -47,6 +48,7 @@ WriteResult({ "nInserted" : 1 })
         "ok" : 1
         
 //multiple indexes
+
  db.college.createIndex({"mark.maths":1})
 {
         "numIndexesBefore" : 2,
@@ -54,6 +56,7 @@ WriteResult({ "nInserted" : 1 })
         "createdCollectionAutomatically" : false,
         "ok" : 1
 }
+
 >db.college.getIndexes()
 [
         {
@@ -79,10 +82,47 @@ WriteResult({ "nInserted" : 1 })
         }
 ]
 // text indexes//
+
 > db.createCollection("comment")
 { "ok" : 1 }
+
 > db.comment.insert({"name":"anju","post":"hai nandu"})
 WriteResult({ "nInserted" : 1 })
 > db.comment.insert({"name":"nandu","post":"anjukcee"})
 WriteResult({ "nInserted" : 1 })
+
+> db.comment.createIndex({"post":"text"})
+{
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "createdCollectionAutomatically" : false,
+        "ok" : 1
+}
+> db.comment.getIndexes()
+[
+        {
+                "v" : 2,
+                "key" : {
+                        "_id" : 1
+                },
+                "name" : "_id_"
+        },
+        {
+                "v" : 2,
+                "key" : {
+                        "_fts" : "text",
+                        "_ftsx" : 1
+                },
+                "name" : "post_text",
+                "weights" : {
+                        "post" : 1
+                },
+                "default_language" : "english",
+                "language_override" : "language",
+                "textIndexVersion" : 3
+        }
+]
+ > db.comment.find({$text:{$search:"\"anjukcee\""}})
+{ "_id" : ObjectId("62a072ec477bcdc608eb363d"), "name" : "nandu", "post" : "anjukcee" }
+>
 
