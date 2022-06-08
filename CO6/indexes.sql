@@ -18,7 +18,7 @@ WriteResult({ "nInserted" : 1 })
         "createdCollectionAutomatically" : false,
         "ok" : 1
 }
-//single field index
+//single field index //
 
 > db.college.getIndexes()
 [
@@ -38,7 +38,7 @@ WriteResult({ "nInserted" : 1 })
         }
 ]
 >
-//compound indexes
+//compound indexes//
 
 > db.college.createIndex({"regno":1},{"name":"anju"})
 {
@@ -47,7 +47,7 @@ WriteResult({ "nInserted" : 1 })
         "createdCollectionAutomatically" : false,
         "ok" : 1
         
-//multiple indexes
+//multiple indexes //
 
  db.college.createIndex({"mark.maths":1})
 {
