@@ -272,30 +272,6 @@ uncaught exception: SyntaxError: expected expression, got '}' :
 uncaught exception: SyntaxError: expected property name, got '{' :
 @(shell):1:40
 > db.movies.find({$or:[{"year":{$lt:2000},{$gt:2010}],"name":1}})
-uncaught exception: SyntaxError: expected property name, got '{' :
-@(shell):1:40
-> db.movies.aggragate({$or:[{"year":{$lt:2000},{$gt:2010}}]})
-uncaught exception: SyntaxError: expected property name, got '{' :
-@(shell):1:45
-> db.movies.find({$or:[{year:{$lt:2000},{$gt:2010}}]})
-uncaught exception: SyntaxError: expected property name, got '{' :
-@(shell):1:38
-> db.movies.find({$or:[{"name":{},{year:{$lt:2000},{$gt:2010}}]})
-... )
-uncaught exception: SyntaxError: expected property name, got '{' :
-@(shell):1:32
-> db.movies.find({$or:[{"name":{},{year:{$lt:2000},{$gt:2010}}}]})
-uncaught exception: SyntaxError: expected property name, got '{' :
-@(shell):1:32
-> db.movies.find({$or:[{"name":{},{"year":{$lt:2000},{$gt:2010}}}]})
-uncaught exception: SyntaxError: expected property name, got '{' :
-@(shell):1:32
-> db.movies.find({"title":{},"year":{$gt:1990}}).pretty()
-> db.movies.find({"title":1,"year":{$gt:1990}}).pretty()
-> db.movies.find({title:1,"year":{$gt:1990}}).pretty()
-> db.movies.find({},"year":{$gt:1990}}).pretty()
-uncaught exception: SyntaxError: missing ) after argument list :
-@(shell):1:24
 > db.movies.find({{"title":1},"year":{$gt:1990}}).pretty()
 uncaught exception: SyntaxError: expected property name, got '{' :
 @(shell):1:16
@@ -483,8 +459,10 @@ uncaught exception: SyntaxError: missing ) after argument list :
 @(shell):1:24
 > db.movies.remove({"title":"Pee Wee Herman's Big Adventure"})
 WriteResult({ "nRemoved" : 1 })
-> db.movies.find({"year":{$gt:1990},{},{"title":1}})
-uncaught exception: SyntaxError: expected property name, got '{' :
+
+> db.movies.find({"year":{$lt:2000}},{title:1})
+{ "_id" : ObjectId("62a81715da05c2d45b3ba1f5"), "title" : "Fight Club" }
+{ "_id" : ObjectId("62a817d1da05c2d45b3ba1f6"), "title" : "Pulp Fiction" }
 @(shell):1:34
 > db.movies.find()
 { "_id" : ObjectId("62a81715da05c2d45b3ba1f5"), "title" : "Fight Club", "writer" : "Chuck Palahniuk", "year" : 1999, "actors" : [ "Brad pitt", "Edward Norton" ] }
@@ -495,100 +473,11 @@ uncaught exception: SyntaxError: expected property name, got '{' :
 { "_id" : ObjectId("62a81a12da05c2d45b3ba1fa"), "title" : "The Hobbit:The Desolation of Smaug", "writer" : "J.R.R.Tolkein", "year" : 2013, "franchise" : "The Hobbit" }
 { "_id" : ObjectId("62a81b27da05c2d45b3ba1fb"), "title" : "The Hobbit:The Battle of the Five Armies", "writer" : "J.R.R.Tolkein", "year" : 2012, "franchise" : "The Hobbit", "synopsis" : "Bilbo and Company are forced to engange in a war against a array of combatans and keep the Loney Mountain from falling into the hands of a rising darkness" }
 { "_id" : ObjectId("62a81b8eda05c2d45b3ba1fd"), "title" : "Avatar" }
+
 > db.movies.find({"year":{$gt:1990},{},{title:1}})
-uncaught exception: SyntaxError: expected property name, got '{' :
-@(shell):1:34
-> db.movies.find({"year":{$lt:2000},{title:1}})
-uncaught exception: SyntaxError: expected property name, got '{' :
-@(shell):1:34
-> db.movies.find({"year":{$lt:"2000"},{title:1}})
-uncaught exception: SyntaxError: expected property name, got '{' :
-@(shell):1:36
-> db.movies.find({year:{$lt:2000},{title:1}})
-uncaught exception: SyntaxError: expected property name, got '{' :
-@(shell):1:32
-> db.movies.find({"year":{$lt:2000},{title:1})
-... )
-uncaught exception: SyntaxError: expected property name, got '{' :
-@(shell):1:34
-> db.movies.find({"year":{$lt:2000},{title:1}})
-uncaught exception: SyntaxError: expected property name, got '{' :
-@(shell):1:34
-> db.movies.find({synopsis:{$regex:"Bilbo"}})
-{ "_id" : ObjectId("62a81b27da05c2d45b3ba1fb"), "title" : "The Hobbit:The Battle of the Five Armies", "writer" : "J.R.R.Tolkein", "year" : 2012, "franchise" : "The Hobbit", "synopsis" : "Bilbo and Company are forced to engange in a war against a array of combatans and keep the Loney Mountain from falling into the hands of a rising darkness" }
-> db.movies.find({synopsis:{$regex:"Bilbo"},{title:1}})
-uncaught exception: SyntaxError: expected property name, got '{' :
-@(shell):1:42
-> db.movies.find({synopsis:{$regex:"Bilbo"},{"title":1}})
-uncaught exception: SyntaxError: expected property name, got '{' :
-@(shell):1:42
-> db.movies.updateOne({{"title":"The hobit:The Desolation of Smaug"},{"synopsis":The dwarves,along with Bilbo Bagging and Gandalf the Gray,continue their quest to reclaim Erebor,their homeland,from smaug.Bilbo Baggins is in possession of a ,ysterious and magical ring"}})
-uncaught exception: SyntaxError: expected property name, got '{' :
-@(shell):1:21
-> db.movies.updateOne({{"title":"The hobit:The Desolation of Smaug"},{"synopsis":"The dwarves,along with Bilbo Bagging and Gandalf the Gray,continue their quest to reclaim Erebor,their homeland,from smaug.Bilbo Baggins is in possession of a ,ysterious and magical ring"}})
-uncaught exception: SyntaxError: expected property name, got '{' :
-@(shell):1:21
-> db.movies.updateOne({"title":"Pulp Fiction","actor":(["Samual l.Jackson])})
-uncaught exception: SyntaxError: "" literal not terminated before end of script :
-@(shell):1:75
-> db.movies.updateOne({"title":"Pulp Fiction","actor":(["Samual l.Jackson]")})
-... )
-uncaught exception: SyntaxError: missing ] after element list :
-@(shell):1:73
-> db.movies.updateOne({"title":"Pulp Fiction","actor":(["Samual l.Jackson"])})
-uncaught exception: TypeError: can't convert undefined to object :
-DBCollection.prototype.updateOne@src/mongo/shell/crud_api.js:558:20
-@(shell):1:1
-> db.movies.updateOne({"title":"Pulp Fiction","actors":(["Samual l.Jackson"])})
-uncaught exception: TypeError: can't convert undefined to object :
-DBCollection.prototype.updateOne@src/mongo/shell/crud_api.js:558:20
-@(shell):1:1
-> db.movies.find({"year":{$lt:2000},{title:1}})
-uncaught exception: SyntaxError: expected property name, got '{' :
-@(shell):1:34
-> db.movies.find({"year":{$lt:2000},{title:1}})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ db.movies.find({synopsis:{$regex:"Bilbo"}},{title:1})
+{ "_id" : ObjectId("62a81b27da05c2d45b3ba1fb"), "title" : "The Hobbit:The Battle of the Five Armies" }
+>
 
 
 
